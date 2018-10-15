@@ -8,7 +8,7 @@ getwd()
 setwd("directory")
 data = read.csv("directory",encoding = "UTF-8", header = TRUE, sep = ",")
 
-####extracting hashtags######better run without any encoding and then use 1251: Cyrrilic(Windows) to correctly open an output##### 
+# extracting hashtags - better run without any encoding and then use 1251: Cyrrilic(Windows) to correctly open an output. 
 
 text_corpus <- data.frame(id = as.character(data2$tweet.id), user = as.character(data2$user.handle), 
                           text = as.character(data2$tweet)) #creates new data frame with the data we want
@@ -32,9 +32,10 @@ hashtags.list <- subset(tokenlist, atyes == TRUE, select = c(id, user, wordy)) #
 hashtags.list <- apply(hashtags.list,2,as.character)
 
 write.csv(hashtags.list, 'hashtags.csv')
+
 ####encoding for this file is 1251: Cyrilic(Windows) ####
 
-####extracting @-mentions#####
+# extracting @-mentions.
 
 tokenize_words_mod <- function(x) {
   return(unlist(tokenize_words(x, lowercase = FALSE, strip_punct = FALSE)))} #word tokenizing function
