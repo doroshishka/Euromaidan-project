@@ -35,6 +35,7 @@ write.csv(hashtags.list, 'hashtags.csv')
 ####encoding for this file is 1251: Cyrilic(Windows) ####
 
 ####extracting @-mentions#####
+
 tokenize_words_mod <- function(x) {
   return(unlist(tokenize_words(x, lowercase = FALSE, strip_punct = FALSE)))} #word tokenizing function
 
